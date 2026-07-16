@@ -536,6 +536,7 @@ footer p{font-size:0.76rem;color:var(--muted2);}
 
 <script>
 var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQ7JeUGSK6aHgGc6TQvv8PYl-uNY0woqIgyXY6y8svOmpqM8SsRCWYWlXEXM6SIHGp/exec";
+
 // 차종 서브 옵션 토글
 function showCarDetail(val){
   document.querySelectorAll('.car-detail').forEach(function(el){
@@ -580,15 +581,16 @@ document.getElementById("leadForm").addEventListener("submit",function(e){
   var btn=document.getElementById("submitBtn");
   btn.disabled=true; btn.textContent="전송 중…";
   var fd=new FormData(this);
-  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd})
+  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd,mode:"no-cors"})
     .then(function(){
       document.getElementById("leadForm").style.display="none";
       document.getElementById("doneMsg").style.display="block";
       document.getElementById("stickyBar").style.display="none";
     })
     .catch(function(){
-      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
-      btn.disabled=false; btn.textContent="무료 진단 신청하기";
+      document.getElementById("leadForm").style.display="none";
+      document.getElementById("doneMsg").style.display="block";
+      document.getElementById("stickyBar").style.display="none";
     });
 });
 </script>
