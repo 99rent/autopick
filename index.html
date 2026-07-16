@@ -3,689 +3,594 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>달리는 영업맨 | 대구경북 장기렌트·오토리스 전문 컨설팅</title>
-<meta name="description" content="대구경북 장기렌트·오토리스 전문 컨설턴트. 10년 경력. 평일 오후 직접 방문상담. 법인세 절세 설계 포함. 무료상담.">
-<meta property="og:title" content="달리는 영업맨 | 대구경북 장기렌트 전문">
-<meta property="og:description" content="평일 오후 2시 이후 대구경북 어디든 직접 찾아갑니다. 10년 경력 전문 컨설턴트.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<title>AutoPick — 대구·경북 장기렌트·오토리스 비교 컨설팅</title>
+<meta name="description" content="사장님 차, 사지 말고 비용처리 하세요. 장기렌트·오토리스 3사 비교견적, 대구·경북 15년차 컨설턴트가 직접 비교합니다.">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;color:#2D3748;line-height:1.7;-webkit-text-size-adjust:100%}
+/* ── 토큰 ── */
 :root{
-  --navy:#0B1929;
-  --navy-mid:#162436;
-  --amber:#F5A623;
-  --amber-dark:#D4880D;
-  --amber-pale:#FFF6E0;
-  --white:#FFFFFF;
-  --gray-bg:#F4F6F9;
-  --gray-text:#4A5568;
-  --gray-muted:#718096;
+  --black:#0a0a0a; --card:#111111; --card2:#1a1a1a; --line:#2a2a2a; --line2:#333;
+  --gold:#C9A84C; --gold-lt:#E8C97A; --gold-dk:#8B6914; --gold-glow:rgba(201,168,76,0.18);
+  --cream:#F5F5F0; --muted:#888; --muted2:#555;
+  --radius:14px; --radius-sm:8px;
 }
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--cream);font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,sans-serif;line-height:1.68;padding-bottom:90px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:540px;margin:0 auto;padding:0 22px;}
 
-/* ── TOP BAR ── */
-.top-bar{
-  position:fixed;top:0;width:100%;z-index:999;
-  background:var(--navy);
-  padding:10px 24px;
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.top-logo{color:#fff;font-weight:700;font-size:14px;letter-spacing:-0.02em}
-.top-logo em{color:var(--amber);font-style:normal}
-.top-btns{display:flex;gap:8px}
-.top-kakao{
-  background:#FEE500;color:#3C1E1E;
-  padding:7px 14px;border-radius:6px;
-  font-size:12px;font-weight:700;text-decoration:none;
-  white-space:nowrap;
-}
-.top-call{
-  background:var(--amber);color:var(--navy);
-  padding:7px 14px;border-radius:6px;
-  font-size:12px;font-weight:700;text-decoration:none;
-  white-space:nowrap;
-}
+/* ── 워드마크 ── */
+.wordmark{display:flex;align-items:baseline;gap:0;line-height:1;}
+.wordmark .auto{font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;font-weight:400;letter-spacing:0.08em;color:var(--cream);}
+.wordmark .pick{font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;font-weight:700;letter-spacing:0.04em;color:var(--gold);}
+.wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 1px 4px 2px;flex-shrink:0;}
+.tagline{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
 
-/* ── HERO ── */
-.hero{
-  background:var(--navy);
-  min-height:100vh;
-  padding:120px 24px 80px;
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-}
+/* ── 헤더 ── */
+header{padding:28px 0 0;}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.header-cta{font-size:0.78rem;color:var(--gold);border:1px solid var(--gold-dk);padding:7px 14px;border-radius:20px;text-decoration:none;letter-spacing:0.04em;white-space:nowrap;}
 
-/* 속도감 대각선 — 시그니처 요소 */
-.hero-lines{
-  position:absolute;
-  top:0;right:0;
-  width:55%;height:100%;
-  pointer-events:none;
-  overflow:hidden;
-}
-.hero-lines::before{
-  content:'';
-  position:absolute;
-  inset:-20% 0;
-  background:repeating-linear-gradient(
-    72deg,
-    transparent 0px,
-    transparent 38px,
-    rgba(245,166,35,0.055) 38px,
-    rgba(245,166,35,0.055) 42px
-  );
-}
-.hero-accent-bar{
-  position:absolute;top:0;right:0;
-  width:4px;height:100%;
-  background:var(--amber);
-}
+/* ── 골드 룰 ── */
+.rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:28px 0;}
+.rule-sm{width:40px;height:1px;background:var(--gold);margin:14px 0;}
 
-.hero-inner{
-  max-width:860px;
-  margin:0 auto;
-  position:relative;z-index:1;
-  width:100%;
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(245,166,35,0.12);
-  border:1px solid rgba(245,166,35,0.28);
-  color:var(--amber);
-  padding:6px 16px;border-radius:100px;
-  font-size:12px;font-weight:700;letter-spacing:0.06em;
-  margin-bottom:28px;
-}
-.hero h1{
-  color:#fff;
-  font-size:clamp(30px,4.8vw,56px);
-  font-weight:900;
-  line-height:1.18;
-  letter-spacing:-0.03em;
-  margin-bottom:22px;
-  word-break:keep-all;
-}
-.hero h1 .hl{color:var(--amber)}
-.hero-sub{
-  color:rgba(255,255,255,0.65);
-  font-size:clamp(14px,2vw,17px);
-  margin-bottom:36px;
-  max-width:540px;
-  word-break:keep-all;
-  line-height:1.8;
-}
-.visit-badge{
-  display:inline-flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-left:4px solid var(--amber);
-  padding:16px 22px;
-  border-radius:0 10px 10px 0;
-  margin-bottom:36px;
-  color:#fff;
-  font-size:15px;
-  word-break:keep-all;
-}
-.visit-badge strong{color:var(--amber)}
-.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn-main{
-  background:var(--amber);color:var(--navy);
-  padding:15px 30px;border-radius:8px;
-  font-size:16px;font-weight:700;text-decoration:none;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.btn-ghost{
-  background:transparent;color:#fff;
-  padding:15px 30px;border-radius:8px;
-  font-size:16px;font-weight:700;text-decoration:none;
-  border:1.5px solid rgba(255,255,255,0.3);
-}
-.btn-main:hover{background:var(--amber-dark)}
-.btn-ghost:hover{background:rgba(255,255,255,0.07)}
+/* ── 히어로 ── */
+.hero{padding:44px 0 36px;}
+.hero .eyebrow{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:2.1rem;line-height:1.24;letter-spacing:-0.5px;font-weight:400;}
+.hero h1 strong{color:var(--gold);font-weight:700;}
+.hero p{color:var(--muted);font-size:0.95rem;margin-top:16px;line-height:1.72;}
 
-/* ── AMBER STRIP ── */
-.amber-strip{
-  background:var(--amber);
-  padding:15px 24px;
-}
-.strip-inner{
-  max-width:900px;margin:0 auto;
-  display:flex;flex-wrap:wrap;justify-content:center;
-  gap:16px 36px;
-}
-.strip-item{
-  display:flex;align-items:center;gap:8px;
-  color:var(--navy);font-weight:700;font-size:14px;
-  white-space:nowrap;
-}
+/* 달리는 아이콘 */
+.runner{display:flex;align-items:center;gap:12px;margin-top:28px;}
+.runner-track{flex:1;height:1px;background:var(--line2);position:relative;overflow:hidden;}
+.runner-track::after{content:"▶";position:absolute;left:-20px;top:-9px;font-size:14px;color:var(--gold);animation:drive 3s ease-in-out infinite;}
+@keyframes drive{0%{left:-20px;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{left:calc(100% + 4px);opacity:0;}}
+.runner span{font-size:0.78rem;color:var(--muted);letter-spacing:0.1em;white-space:nowrap;}
 
-/* ── SECTION BASE ── */
-.sec{padding:80px 24px}
-.sec-gray{background:var(--gray-bg)}
-.sec-navy{background:var(--navy)}
-.sec-in{max-width:900px;margin:0 auto}
-.sec-eyebrow{
-  width:36px;height:4px;
-  background:var(--amber);
-  margin-bottom:16px;
-}
-.sec-title{
-  font-size:clamp(22px,3.2vw,36px);
-  font-weight:900;
-  color:#1A202C;
-  margin-bottom:10px;
-  word-break:keep-all;
-  letter-spacing:-0.02em;
-}
-.sec-title.wh{color:#fff}
-.sec-lead{
-  color:var(--gray-muted);
-  font-size:15px;
-  margin-bottom:48px;
-  word-break:keep-all;
-}
-.sec-lead.wh{color:rgba(255,255,255,0.6)}
+.hero-cta{display:block;width:100%;text-align:center;margin-top:28px;
+  background:linear-gradient(135deg,var(--gold-dk),var(--gold),var(--gold-lt));
+  color:var(--black);font-size:1rem;font-weight:800;padding:17px;border-radius:var(--radius);
+  text-decoration:none;letter-spacing:0.04em;
+  box-shadow:0 8px 28px rgba(201,168,76,0.3);}
+.hero-cta small{display:block;font-weight:400;font-size:0.76rem;margin-top:3px;opacity:0.75;letter-spacing:0;}
 
-/* ── STATS ── */
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:16px;
-  margin-bottom:56px;
-}
-.stat{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:12px;
-  padding:28px 20px;
-  text-align:center;
-}
-.stat-num{
-  font-size:clamp(32px,4vw,46px);
-  font-weight:900;
-  color:var(--amber);
-  line-height:1;
-  margin-bottom:10px;
-  letter-spacing:-0.03em;
-}
-.stat-lbl{color:rgba(255,255,255,0.65);font-size:13px;line-height:1.5;word-break:keep-all}
+/* ── PAIN ── */
+.pain-section{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
+.section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.pain-item{display:grid;grid-template-columns:20px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);}
+.pain-item:last-child{border-bottom:none;}
+.pain-x{color:var(--gold-dk);font-size:1rem;font-weight:700;padding-top:2px;}
+.pain-text b{display:block;font-size:0.95rem;margin-bottom:3px;}
+.pain-text span{font-size:0.84rem;color:var(--muted);}
 
-/* ── TAX ITEMS ── */
-.tax-list{display:flex;flex-direction:column;gap:14px}
-.tax-item{
-  background:rgba(255,255,255,0.05);
-  border-left:4px solid var(--amber);
-  padding:20px 22px;
-  border-radius:0 10px 10px 0;
-}
-.tax-item h4{
-  color:var(--amber);
-  font-size:15px;font-weight:700;
-  margin-bottom:7px;
-}
-.tax-item p{
-  color:rgba(255,255,255,0.75);
-  font-size:14px;line-height:1.8;
-  word-break:keep-all;
-}
+/* ── NUMBERS ── */
+.numbers-section{padding:40px 0;}
+.nums-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.num-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 16px;}
+.num-card.wide{grid-column:1/-1;}
+.num-card b{display:block;font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);letter-spacing:-0.5px;margin-bottom:6px;}
+.num-card span{font-size:0.82rem;color:var(--muted);line-height:1.5;}
+.num-card.wide b{font-size:1.1rem;}
+.disclaimer{font-size:0.72rem;color:var(--muted2);margin-top:10px;}
 
-/* ── BENEFIT CARDS ── */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.card{
-  background:#fff;
-  border:1.5px solid #E2E8F0;
-  border-radius:14px;
-  padding:28px 24px;
-}
-.card.hot{border-color:var(--amber);border-width:2px}
-.card-badge{
-  display:inline-block;
-  background:var(--amber-pale);
-  color:#7B5900;
-  padding:3px 12px;border-radius:100px;
-  font-size:12px;font-weight:700;
-  margin-bottom:14px;
-}
-.card-icon{font-size:34px;display:block;margin-bottom:14px}
-.card h3{
-  font-size:17px;font-weight:700;
-  color:#1A202C;margin-bottom:10px;
-}
-.card > p{
-  color:var(--gray-text);font-size:14px;
-  line-height:1.75;word-break:keep-all;
-  margin-bottom:14px;
-}
-.chk{list-style:none;display:flex;flex-direction:column;gap:7px}
-.chk li{
-  color:var(--gray-text);
-  font-size:13.5px;
-  display:flex;align-items:flex-start;gap:8px;
-  word-break:keep-all;
-  line-height:1.5;
-}
-.chk li::before{
-  content:'✓';
-  color:var(--amber);
-  font-weight:700;
-  flex-shrink:0;
-  margin-top:1px;
-}
+/* ── STEPS ── */
+.steps-section{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
+.step-row{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:14px 0;align-items:start;}
+.step-num{width:32px;height:32px;border:1px solid var(--gold-dk);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:0.9rem;color:var(--gold);flex-shrink:0;}
+.step-row b{display:block;font-size:0.97rem;margin-bottom:4px;}
+.step-row span{font-size:0.84rem;color:var(--muted);}
 
-/* ── PROCESS ── */
-.process{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-.proc-step{
-  background:#fff;
-  border-radius:14px;
-  padding:32px 24px;
-  text-align:center;
-  border:1.5px solid #E2E8F0;
-  position:relative;
-}
-.proc-num{
-  width:54px;height:54px;
-  background:var(--amber);color:var(--navy);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:900;
-  margin:0 auto 18px;
-}
-.proc-step h3{
-  font-size:16px;font-weight:700;
-  color:#1A202C;margin-bottom:10px;
-}
-.proc-step p{
-  color:var(--gray-text);font-size:13.5px;
-  line-height:1.75;word-break:keep-all;
-}
+/* ── WHY ── */
+.why-section{padding:40px 0;}
+.why-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.why-item{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:0.9rem;}
+.why-item:last-child{border-bottom:none;}
+.why-check{color:var(--gold);flex-shrink:0;margin-top:1px;}
 
-/* ── FAQ ── */
-.faq-wrap{display:flex;flex-direction:column;gap:0}
-.faq-item{border-bottom:1px solid #E8ECF0}
-.faq-q{
-  width:100%;text-align:left;
-  padding:20px 0;
-  background:none;border:none;cursor:pointer;
-  font-size:15px;font-weight:700;color:#1A202C;
-  font-family:'Noto Sans KR',sans-serif;
-  display:flex;justify-content:space-between;align-items:center;
-  gap:16px;word-break:keep-all;line-height:1.5;
-}
-.faq-q:hover{color:var(--amber)}
-.faq-ico{
-  font-size:24px;color:var(--amber);
-  flex-shrink:0;
-  transition:transform .22s;
-  font-weight:400;line-height:1;
-}
-.faq-a{
-  display:none;
-  padding:0 0 20px;
-  color:var(--gray-text);font-size:14px;
-  line-height:1.85;word-break:keep-all;
-}
-.faq-item.on .faq-a{display:block}
-.faq-item.on .faq-ico{transform:rotate(45deg)}
+/* ── FORM ── */
+.form-section{padding:40px 0;scroll-margin-top:16px;}
+.form-section h2{font-family:Georgia,serif;font-size:1.45rem;font-weight:400;margin-bottom:4px;}
+.form-section h2 strong{color:var(--gold);}
+.form-sub{font-size:0.84rem;color:var(--muted);margin-bottom:28px;}
 
-/* ── FINAL CTA ── */
-.final{
-  background:var(--navy);
-  padding:90px 24px;
-  text-align:center;
-}
-.final h2{
-  color:#fff;
-  font-size:clamp(26px,4vw,44px);
-  font-weight:900;
-  margin-bottom:14px;
-  word-break:keep-all;
-  letter-spacing:-0.02em;
-  line-height:1.25;
-}
-.final h2 span{color:var(--amber)}
-.final p{
-  color:rgba(255,255,255,0.6);
-  font-size:15px;margin-bottom:40px;
-  word-break:keep-all;
-}
-.final-btns{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;gap:16px;
-}
-.fbtn-kk{
-  background:#FEE500;color:#3C1E1E;
-  padding:17px 36px;border-radius:10px;
-  font-size:17px;font-weight:700;text-decoration:none;
-  display:inline-flex;align-items:center;gap:10px;
-}
-.fbtn-call{
-  background:var(--amber);color:var(--navy);
-  padding:17px 36px;border-radius:10px;
-  font-size:17px;font-weight:700;text-decoration:none;
-  display:inline-flex;align-items:center;gap:10px;
-}
-.fbtn-kk:hover{opacity:.9}
-.fbtn-call:hover{background:var(--amber-dark)}
+.fgroup{margin-bottom:18px;}
+.fgroup>label.flabel{display:block;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+input[type=text],input[type=tel],select{
+  width:100%;background:var(--card);border:1px solid var(--line2);border-radius:var(--radius-sm);
+  color:var(--cream);padding:14px 16px;font-size:0.95rem;font-family:inherit;
+  -webkit-appearance:none;appearance:none;
+  transition:border-color .2s;}
+input:focus,select:focus{outline:none;border-color:var(--gold);}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
 
-/* ── FOOTER ── */
-footer{
-  background:#060E17;
-  padding:30px 24px;
-  text-align:center;
-}
-footer p{
-  color:rgba(255,255,255,0.3);
-  font-size:12px;line-height:2;
-}
-footer small{opacity:.6}
+/* 칩 선택 */
+.chip-group{display:flex;gap:8px;flex-wrap:wrap;}
+.chip-group input{display:none;}
+.chip-group label{flex:1;min-width:calc(33.33% - 8px);text-align:center;
+  background:var(--card);border:1px solid var(--line2);border-radius:var(--radius-sm);
+  padding:12px 6px;font-size:0.84rem;color:var(--muted);cursor:pointer;
+  transition:all .2s;letter-spacing:0.02em;}
+.chip-group input:checked+label{background:var(--gold-glow);border-color:var(--gold);color:var(--gold);font-weight:700;}
 
-/* ── MOBILE ── */
-@media(max-width:600px){
-  .top-bar{padding:10px 16px}
-  .hero{padding:100px 20px 64px}
-  .sec{padding:60px 20px}
-  .hero h1{font-size:30px}
-  .stat-num{font-size:36px}
-}
+/* 차종 서브옵션 */
+.car-detail{display:none;margin-top:10px;}
+.car-detail.show{display:block;}
+.car-detail select{background:var(--card2);}
+
+/* 예산 슬라이더 */
+.budget-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.budget-val{font-family:Georgia,serif;font-size:1.1rem;color:var(--gold);}
+.budget-unit{font-size:0.8rem;color:var(--muted);}
+input[type=range]{width:100%;height:3px;-webkit-appearance:none;appearance:none;background:var(--line2);border-radius:2px;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 8px rgba(201,168,76,0.5);}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:none;}
+.budget-labels{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--muted2);margin-top:6px;}
+
+/* 텍스트에어리어 */
+textarea.fta{width:100%;background:var(--card);border:1px solid var(--line2);border-radius:var(--radius-sm);
+  color:var(--cream);padding:14px 16px;font-size:0.9rem;font-family:inherit;
+  min-height:80px;resize:vertical;transition:border-color .2s;}
+textarea.fta:focus{outline:none;border-color:var(--gold);}
+
+/* 동의 */
+.agree-row{display:flex;gap:10px;align-items:flex-start;font-size:0.8rem;color:var(--muted);margin-top:6px;}
+.agree-row input{flex-shrink:0;width:16px;height:16px;margin-top:2px;accent-color:var(--gold);}
+
+/* 제출 버튼 */
+.submit-btn{width:100%;margin-top:22px;
+  background:linear-gradient(135deg,var(--gold-dk),var(--gold),var(--gold-lt));
+  color:var(--black);font-size:1rem;font-weight:800;padding:17px;
+  border:none;border-radius:var(--radius);cursor:pointer;letter-spacing:0.04em;
+  box-shadow:0 8px 28px rgba(201,168,76,0.3);}
+.submit-btn:disabled{opacity:0.5;cursor:default;}
+.done-msg{display:none;text-align:center;padding:40px 10px;}
+.done-msg b{font-family:Georgia,serif;color:var(--gold);font-size:1.2rem;display:block;margin-bottom:10px;}
+.done-msg p{font-size:0.9rem;color:var(--muted);}
+
+/* ── STICKY ── */
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:14px 22px;
+  background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);z-index:100;}
+.sticky a{display:block;max-width:540px;margin:0 auto;text-align:center;
+  background:linear-gradient(135deg,var(--gold-dk),var(--gold));
+  color:var(--black);font-weight:800;padding:14px;border-radius:var(--radius-sm);
+  text-decoration:none;font-size:0.95rem;letter-spacing:0.04em;}
+
+footer{padding:36px 0 16px;text-align:center;}
+footer .fw{display:flex;justify-content:center;margin-bottom:12px;}
+footer p{font-size:0.76rem;color:var(--muted2);}
 </style>
 </head>
 <body>
 
-<!-- 상단 고정바 -->
-<div class="top-bar">
-  <div class="top-logo">⚡ 달리는 <em>영업맨</em></div>
-  <div class="top-btns">
-    <a href="https://open.kakao.com/o/s9pGhwud" class="top-kakao">💬 카카오 상담</a>
-    <a href="tel:010-7751-6693" class="top-call">📞 전화</a>
+<!-- HEADER -->
+<header>
+<div class="wrap">
+  <div class="header-inner">
+    <div>
+      <div class="wordmark"><span class="auto">Auto</span><span class="dot"></span><span class="pick">Pick</span></div>
+      <div class="tagline">장기렌트 · 오토리스 비교 컨설팅</div>
+    </div>
+    <a class="header-cta" href="#form">무료 진단 →</a>
   </div>
+  <div class="rule"></div>
 </div>
+</header>
 
-<!-- 히어로 -->
+<!-- HERO -->
+<div class="wrap">
 <section class="hero">
-  <div class="hero-lines"><div class="hero-accent-bar"></div></div>
-  <div class="hero-inner">
-    <div class="hero-tag">🚗 대구·경북 장기렌트 · 오토리스 전문</div>
-    <h1>
-      차 한 대로 세금 아끼고<br>
-      <span class="hl">편하게 타는 법,<br>제가 직접 알려드립니다</span>
-    </h1>
-    <p class="hero-sub">
-      10년 경력 장기렌트·오토리스 전문 컨설턴트.<br>
-      법인세 절세 설계부터 계약 조건 비교까지 — 복잡한 것 없이 명쾌하게.
-    </p>
-    <div class="visit-badge">
-      📍 <span><strong>평일 오후 2시 이후</strong> 대구·경북 어디든 직접 찾아갑니다</span>
-    </div>
-    <div class="hero-btns">
-      <a href="https://open.kakao.com/o/s9pGhwud" class="btn-main">💬 무료 상담 신청</a>
-      <a href="#benefits" class="btn-ghost">혜택 먼저 보기 ↓</a>
-    </div>
-  </div>
-</section>
+  <p class="eyebrow">대구 · 경북 15년차 컨설턴트</p>
+  <h1>사장님 차,<br>사지 말고<br><strong>비용처리</strong> 하세요</h1>
+  <p>월 렌트료가 전액 경비가 됩니다.<br>렌트사 소속이 아니라서, 사장님 편에서<br>3사 조건을 나란히 비교해 드립니다.</p>
 
-<!-- 신뢰 스트립 -->
-<div class="amber-strip">
-  <div class="strip-inner">
-    <div class="strip-item">🏆 10년+ 컨설팅 경력</div>
-    <div class="strip-item">📍 대구·경북 직접 방문상담</div>
-    <div class="strip-item">💰 2026 절세 설계 포함</div>
-    <div class="strip-item">✅ 상담비 무료</div>
-    <div class="strip-item">🔒 의무 계약 없음</div>
+  <div class="runner">
+    <span>AutoPick</span>
+    <div class="runner-track"></div>
+    <span>대구 · 경북</span>
   </div>
+
+  <a class="hero-cta" href="#form">1분 무료 진단 신청하기<small>이름과 연락처만 있으면 됩니다 · 영업 폭탄 전화 없습니다</small></a>
+</section>
 </div>
 
-<!-- 신뢰/통계 + 절세 포인트 -->
-<section class="sec sec-navy">
-  <div class="sec-in">
-    <div class="sec-eyebrow"></div>
-    <h2 class="sec-title wh">왜 달리는 영업맨인가요?</h2>
-    <p class="sec-lead wh">온라인 견적 사이트와 다릅니다. 제가 직접 옵니다.</p>
+<!-- PAIN -->
+<section class="pain-section">
+<div class="wrap">
+  <p class="section-label">광고의 진실</p>
+  <div class="pain-item">
+    <span class="pain-x">✕</span>
+    <div class="pain-text"><b>"월 29만원부터"</b><span>보증금 30% + 5년 최장약정 기준. 실제 조건으로 계산하면 월 50만원이 넘는 경우가 대부분입니다.</span></div>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✕</span>
+    <div class="pain-text"><b>"초기비용 완전 0원"</b><span>대신 월 납입금에 전부 녹아 있습니다. 총비용은 오히려 커집니다.</span></div>
+  </div>
+  <div class="pain-item">
+    <span class="pain-x">✕</span>
+    <div class="pain-text"><b>"업계 최저가 보장"</b><span>비교 견적을 안 보여주는 최저가는 확인할 방법이 없습니다.</span></div>
+  </div>
+</div>
+</section>
 
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-num">10년+</div>
-        <div class="stat-lbl">장기렌트·오토리스<br>전문 컨설팅 경력</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">15년+</div>
-        <div class="stat-lbl">대구경북 지역<br>B2B 영업 경험</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">오후 2시~</div>
-        <div class="stat-lbl">평일 방문상담<br>가능 시간대</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">무료</div>
-        <div class="stat-lbl">방문상담 비용<br>상담 후 결정 압박 없음</div>
+<!-- NUMBERS -->
+<div class="wrap">
+<section class="numbers-section">
+  <p class="section-label">사업자라면 숫자가 답</p>
+  <div class="nums-grid">
+    <div class="num-card"><b>월 렌트료</b><span>전액 경비처리 가능<br>(업무용 기준, 한도 내)</span></div>
+    <div class="num-card"><b>0원</b><span>취득세 · 보험료 · 자동차세 — 렌트료에 포함</span></div>
+    <div class="num-card wide"><b>3사 비교견적 무료 제공</b><span>같은 차, 같은 조건으로 복수 렌트사 견적을 나란히 보여드립니다. 수수료·조건 차이가 한눈에 보입니다.</span></div>
+  </div>
+  <p class="disclaimer">* 경비 인정 범위는 업종·운행기록부 작성 여부에 따라 달라질 수 있습니다. 상담 시 안내드립니다.</p>
+</section>
+</div>
+
+<!-- STEPS -->
+<section class="steps-section">
+<div class="wrap">
+  <p class="section-label">진단부터 출고까지</p>
+  <div class="step-row"><span class="step-num">1</span><div><b>1분 진단 신청</b><span>아래 폼 작성 — 원하시는 차종·예산까지 적어두시면 더 빠릅니다</span></div></div>
+  <div class="rule-sm"></div>
+  <div class="step-row"><span class="step-num">2</span><div><b>맞춤 조건 정리 · 당일 연락</b><span>업종·예산에 맞는 실제 월납입금을 계산해 안내드립니다</span></div></div>
+  <div class="rule-sm"></div>
+  <div class="step-row"><span class="step-num">3</span><div><b>비교견적 → 사장님이 선택 → 출고</b><span>계약 강요 없습니다. 복수 견적 중 직접 고르십시오</span></div></div>
+</div>
+</section>
+
+<!-- WHY -->
+<div class="wrap">
+<section class="why-section">
+  <p class="section-label">왜 AutoPick인가</p>
+  <div class="why-card">
+    <div class="why-item"><span class="why-check">◆</span><span>대구·경북에서 15년, 얼굴 보고 하는 영업입니다</span></div>
+    <div class="why-item"><span class="why-check">◆</span><span>특정 렌트사 소속이 아니라 조건 비교가 자유롭습니다</span></div>
+    <div class="why-item"><span class="why-check">◆</span><span>허위 미끼견적 없음 — 처음 안내한 월납입금이 계약서 금액입니다</span></div>
+    <div class="why-item"><span class="why-check">◆</span><span>장기렌트·오토리스 중 사장님 업종에 유리한 쪽을 먼저 비교해 드립니다</span></div>
+    <div class="why-item"><span class="why-check">◆</span><span>출고 후 사고·정비·만기 반납·재계약까지 계속 담당합니다</span></div>
+  </div>
+</section>
+</div>
+
+<!-- FORM -->
+<div class="wrap">
+<section class="form-section" id="form">
+  <div class="rule"></div>
+  <h2>무료 진단 <strong>신청</strong></h2>
+  <p class="form-sub">자세히 적어주실수록 더 정확한 견적을 드릴 수 있습니다. 보통 당일 연락드립니다.</p>
+
+  <form id="leadForm">
+
+    <!-- 성함 -->
+    <div class="fgroup">
+      <label class="flabel" for="name">성함</label>
+      <input type="text" id="name" name="name" required placeholder="홍길동">
+    </div>
+
+    <!-- 연락처 -->
+    <div class="fgroup">
+      <label class="flabel" for="phone">연락처</label>
+      <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000" inputmode="tel">
+    </div>
+
+    <!-- 사업자 구분 -->
+    <div class="fgroup">
+      <label class="flabel">사업자이신가요?</label>
+      <div class="chip-group">
+        <input type="radio" id="biz1" name="biz_type" value="개인사업자"><label for="biz1">개인사업자</label>
+        <input type="radio" id="biz2" name="biz_type" value="법인"><label for="biz2">법인</label>
+        <input type="radio" id="biz3" name="biz_type" value="개인(직장인 등)"><label for="biz3">개인</label>
       </div>
     </div>
 
-    <div class="sec-eyebrow"></div>
-    <h3 class="sec-title wh" style="font-size:clamp(20px,2.8vw,28px);margin-bottom:10px">2026년 꼭 알아야 할 절세 포인트</h3>
-    <p class="sec-lead wh">사업자라면 이 세 가지가 수백만원 차이를 만듭니다.</p>
-
-    <div class="tax-list">
-      <div class="tax-item">
-        <h4>💡 연 1,500만원까지 — 운행기록부 없이 비용처리</h4>
-        <p>법인·개인사업자 모두 업무용승용차 관련비용이 연 1,500만원 이하면 별도 서류 없이 손금(비용) 인정됩니다. 월 렌트료가 약 125만원 이하 구간에서 해당됩니다. 2025년 세법개정으로 기존 1,000만원에서 상향된 기준입니다.</p>
-      </div>
-      <div class="tax-item">
-        <h4>🚗 9인승·경차·화물차 — 부가세 10%까지 환급</h4>
-        <p>카니발 9인승, 포터·봉고, 모닝·레이 등 개별소비세 비과세 차량은 매월 렌트료에 포함된 부가세 10%를 환급받을 수 있습니다. 같은 차라도 인승 설정에 따라 연 수백만원 차이가 납니다.</p>
-      </div>
-      <div class="tax-item">
-        <h4>📋 고가차(취득가 8천만원 이상) — 2026년부터 더 엄격해졌습니다</h4>
-        <p>법인 고가 승용차에 대한 감가상각 한도 적용이 강화됐습니다. 연두색 번호판 의무, 임직원전용보험 가입 요건도 확인이 필요합니다. 방문 상담 시 차종별 정확한 기준을 함께 검토해드립니다.</p>
+    <!-- 렌트 / 리스 -->
+    <div class="fgroup">
+      <label class="flabel">관심 상품</label>
+      <div class="chip-group">
+        <input type="radio" id="prod1" name="product" value="장기렌트"><label for="prod1">장기렌트</label>
+        <input type="radio" id="prod2" name="product" value="오토리스"><label for="prod2">오토리스</label>
+        <input type="radio" id="prod3" name="product" value="비교 후 결정"><label for="prod3">비교 후 결정</label>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- 고객 유형별 혜택 -->
-<section class="sec" id="benefits">
-  <div class="sec-in">
-    <div class="sec-eyebrow"></div>
-    <h2 class="sec-title">고객 유형별 맞춤 혜택</h2>
-    <p class="sec-lead">법인인지, 개인사업자인지, 개인인지에 따라 전략이 달라집니다.</p>
-    <div class="cards">
-
-      <div class="card hot">
-        <div class="card-badge">🔥 법인 대표</div>
-        <span class="card-icon">🏢</span>
-        <h3>법인차 절세 설계</h3>
-        <p>임원 전용 업무차량을 세금으로 최대한 처리하는 구조를 함께 설계합니다.</p>
-        <ul class="chk">
-          <li>연 1,500만원 손금인정 구조 설계</li>
-          <li>감가상각 이월 전략 안내</li>
-          <li>9인승·화물차 부가세 환급 설계</li>
-          <li>법인 전용번호판 규정 설명</li>
-          <li>사고 시 개인 보험이력 영향 없음</li>
-          <li>신용점수·부채비율 영향 없는 렌트 구조</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-badge">💼 개인사업자</div>
-        <span class="card-icon">📊</span>
-        <h3>필요경비 최대화</h3>
-        <p>복식부기 의무자라면 법인과 동일한 세제 혜택을 받을 수 있습니다.</p>
-        <ul class="chk">
-          <li>렌트료 전액 필요경비 처리</li>
-          <li>부가세 환급 차종 선택 안내</li>
-          <li>신용 영향 없는 계약 방식</li>
-          <li>보험·정비 포함 올인원 설명</li>
-          <li>적용 대상 여부 무료 확인</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-badge">👤 개인</div>
-        <span class="card-icon">🚗</span>
-        <h3>목돈 없이 신차 타기</h3>
-        <p>세금혜택은 없어도, 초기 자금 없이 새차를 편하게 이용할 수 있습니다.</p>
-        <ul class="chk">
-          <li>보증금 조정으로 월부담 맞춤 설계</li>
-          <li>보험·정비·자동차세 포함 올인원</li>
-          <li>사고 나도 개인 보험할증 없음</li>
-          <li>만기 후 신차로 자유롭게 교체</li>
-        </ul>
-      </div>
-
+    <!-- 차종 카테고리 -->
+    <div class="fgroup">
+      <label class="flabel" for="car_cat">관심 차종 — 카테고리</label>
+      <select id="car_cat" name="car_cat" onchange="showCarDetail(this.value)">
+        <option value="">선택해 주세요</option>
+        <option value="국산_승용">국산 승용</option>
+        <option value="수입_승용">수입 승용</option>
+        <option value="국산_SUV">국산 SUV · RV</option>
+        <option value="수입_SUV">수입 SUV</option>
+        <option value="전기차">전기차 (EV)</option>
+        <option value="하이브리드">하이브리드 (HEV · PHEV)</option>
+        <option value="화물_밴">화물차 · 밴 · 승합</option>
+        <option value="미정">아직 못 정했어요</option>
+      </select>
     </div>
-  </div>
-</section>
 
-<!-- 프로세스 -->
-<section class="sec sec-gray">
-  <div class="sec-in">
-    <div class="sec-eyebrow"></div>
-    <h2 class="sec-title">상담은 이렇게 진행됩니다</h2>
-    <p class="sec-lead">복잡하지 않습니다. 3단계면 됩니다.</p>
-    <div class="process">
-      <div class="proc-step">
-        <div class="proc-num">1</div>
-        <h3>연락 주세요</h3>
-        <p>카카오톡 또는 전화로 편하게 연락 주세요. 원하시는 차종이나 예산을 간단히 알려주시면 됩니다. 바로 답변드립니다.</p>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">2</div>
-        <h3>직접 찾아갑니다</h3>
-        <p>평일 오후 2시 이후 대구·경북 어디든 직접 방문합니다. 세금처리, 조건 비교, 견적까지 현장에서 바로 설명드립니다.</p>
-      </div>
-      <div class="proc-step">
-        <div class="proc-num">3</div>
-        <h3>최적 계약 설계</h3>
-        <p>법인·개인사업자·개인, 예산, 차종, 주행거리에 맞게 최적의 조건으로 계약을 도와드립니다. 의무 계약 없습니다.</p>
+    <!-- 국산 승용 -->
+    <div class="car-detail fgroup" id="detail_국산_승용">
+      <label class="flabel" for="car_국산_승용">차종 선택</label>
+      <select id="car_국산_승용" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>그랜저 (하이브리드 포함)</option>
+        <option>쏘나타</option>
+        <option>아반떼</option>
+        <option>K8</option>
+        <option>K5</option>
+        <option>K3</option>
+        <option>스팅어</option>
+        <option>제네시스 G80</option>
+        <option>제네시스 G70</option>
+        <option>기타 국산 승용</option>
+      </select>
+    </div>
+
+    <!-- 수입 승용 -->
+    <div class="car-detail fgroup" id="detail_수입_승용">
+      <label class="flabel" for="car_수입_승용">차종 선택</label>
+      <select id="car_수입_승용" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>벤츠 C클래스</option>
+        <option>벤츠 E클래스</option>
+        <option>벤츠 S클래스</option>
+        <option>BMW 3시리즈</option>
+        <option>BMW 5시리즈</option>
+        <option>BMW 7시리즈</option>
+        <option>아우디 A4 · A5</option>
+        <option>아우디 A6 · A7</option>
+        <option>볼보 S60 · S90</option>
+        <option>렉서스 ES · IS</option>
+        <option>기타 수입 승용</option>
+      </select>
+    </div>
+
+    <!-- 국산 SUV -->
+    <div class="car-detail fgroup" id="detail_국산_SUV">
+      <label class="flabel" for="car_국산_SUV">차종 선택</label>
+      <select id="car_국산_SUV" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>팰리세이드</option>
+        <option>싼타페</option>
+        <option>투싼</option>
+        <option>코나</option>
+        <option>GV80 · GV70</option>
+        <option>모하비</option>
+        <option>쏘렌토</option>
+        <option>스포티지</option>
+        <option>카니발</option>
+        <option>기타 국산 SUV·RV</option>
+      </select>
+    </div>
+
+    <!-- 수입 SUV -->
+    <div class="car-detail fgroup" id="detail_수입_SUV">
+      <label class="flabel" for="car_수입_SUV">차종 선택</label>
+      <select id="car_수입_SUV" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>벤츠 GLC · GLE · GLS</option>
+        <option>BMW X3 · X5 · X7</option>
+        <option>아우디 Q5 · Q7</option>
+        <option>포르쉐 카이엔 · 마칸</option>
+        <option>랜드로버 디스커버리 · 레인지로버</option>
+        <option>볼보 XC60 · XC90</option>
+        <option>렉서스 RX · LX</option>
+        <option>기타 수입 SUV</option>
+      </select>
+    </div>
+
+    <!-- 전기차 -->
+    <div class="car-detail fgroup" id="detail_전기차">
+      <label class="flabel" for="car_전기차">차종 선택</label>
+      <select id="car_전기차" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>테슬라 모델 3</option>
+        <option>테슬라 모델 Y</option>
+        <option>테슬라 모델 S · X</option>
+        <option>아이오닉 6</option>
+        <option>아이오닉 5</option>
+        <option>EV6 · EV9</option>
+        <option>GV60 · GV70 EV</option>
+        <option>폴스타 2</option>
+        <option>벤츠 EQS · EQE</option>
+        <option>BMW iX · i4 · i5</option>
+        <option>기타 전기차</option>
+      </select>
+    </div>
+
+    <!-- 하이브리드 -->
+    <div class="car-detail fgroup" id="detail_하이브리드">
+      <label class="flabel" for="car_하이브리드">차종 선택</label>
+      <select id="car_하이브리드" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>그랜저 하이브리드</option>
+        <option>싼타페 하이브리드</option>
+        <option>쏘렌토 하이브리드</option>
+        <option>투싼 하이브리드</option>
+        <option>렉서스 ES300h</option>
+        <option>벤츠 하이브리드 계열</option>
+        <option>BMW 하이브리드 계열</option>
+        <option>기타 하이브리드</option>
+      </select>
+    </div>
+
+    <!-- 화물 -->
+    <div class="car-detail fgroup" id="detail_화물_밴">
+      <label class="flabel" for="car_화물_밴">차종 선택</label>
+      <select id="car_화물_밴" name="car_model">
+        <option value="">선택해 주세요</option>
+        <option>포터 2 (1톤 트럭)</option>
+        <option>봉고 3 (1톤 트럭)</option>
+        <option>스타리아 (승합)</option>
+        <option>스타렉스</option>
+        <option>카니발 (9인승 이상)</option>
+        <option>솔라티</option>
+        <option>기타 화물·승합</option>
+      </select>
+    </div>
+
+    <!-- 계약 기간 -->
+    <div class="fgroup">
+      <label class="flabel">희망 계약 기간</label>
+      <div class="chip-group">
+        <input type="radio" id="term1" name="term" value="24개월"><label for="term1">24개월</label>
+        <input type="radio" id="term2" name="term" value="36개월"><label for="term2">36개월</label>
+        <input type="radio" id="term3" name="term" value="48개월"><label for="term3">48개월</label>
+        <input type="radio" id="term4" name="term" value="60개월"><label for="term4">60개월</label>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="sec">
-  <div class="sec-in">
-    <div class="sec-eyebrow"></div>
-    <h2 class="sec-title">자주 하시는 질문</h2>
-    <p class="sec-lead">더 궁금하신 게 있으면 언제든 직접 물어봐 주세요.</p>
-    <div class="faq-wrap">
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          장기렌트랑 오토리스(리스)는 뭐가 다른가요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          장기렌트는 렌트사 소유 차량을 빌리는 대여 방식으로 하·허·호 번호판을 사용하고, 보험·정비·자동차세가 포함된 경우가 일반적입니다. 오토리스(운용리스)는 금융상품 성격으로 일반 자가용 번호판을 달 수 있고, 보험·정비는 상품에 따라 별도 부담인 경우도 있습니다. 두 방식 모두 사업자 비용처리가 가능합니다. 방문 상담 시 상황에 맞게 비교해드립니다.
-        </div>
+    <!-- 월 예산 슬라이더 -->
+    <div class="fgroup">
+      <label class="flabel">월 납입 예산 (보증금 제외)</label>
+      <div class="budget-row">
+        <span class="budget-val" id="budgetDisplay">70만원</span>
+        <span class="budget-unit">/ 월</span>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          신용등급이 낮아도 가능한가요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          장기렌트는 은행 대출이 아니라 대여 계약이기 때문에 신용등급 영향이 상대적으로 적습니다. 신용이 걱정되시면 보증금을 조금 더 넣는 방식으로 승인 가능성을 높일 수 있어요. 먼저 연락 주시면 상황에 맞게 방향을 안내드립니다.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          방문 상담 비용이 따로 드나요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          방문 상담은 완전 무료입니다. 평일 오후 2시 이후 대구·경북 지역은 직접 찾아뵙습니다. 상담 후 계약하지 않으셔도 전혀 문제없습니다.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          사고 나면 보험료 오르나요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          장기렌트는 렌트사 명의의 법인 단체보험으로 운영되기 때문에, 사고가 나도 고객님 개인 보험이력에는 전혀 영향이 없습니다. 이것이 장기렌트의 가장 큰 장점 중 하나입니다. 오토리스는 상품에 따라 다르니 계약 전 확인해드립니다.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          중간에 해지하면 위약금이 얼마나 나오나요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          중도해지 시 위약금이 발생합니다. 계약 초반일수록 위약금이 크고, 계약 기간의 절반이 지나면 부담이 많이 줄어드는 구조가 일반적입니다. 회사·상품별로 위약금 테이블이 다르기 때문에 계약 전에 정확히 설명드립니다.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          계약 만기 후 차는 어떻게 되나요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          만기 시 세 가지 선택이 있습니다. ① 그냥 반납하거나 ② 잔존가치만큼 추가로 내고 내 차로 구매하거나 ③ 새 차로 재계약할 수 있습니다. 대부분 고객분들은 새 차로 갈아타는 걸 선택하세요 — 계속 신차를 타실 수 있으니까요.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="tog(this)">
-          주행거리 초과하면 어떻게 되나요?
-          <span class="faq-ico">+</span>
-        </button>
-        <div class="faq-a">
-          보통 연 2만km가 기본 계약인데, 초과하면 km당 위약금(통상 50~150원)이 붙습니다. 영업직처럼 주행이 많으시면 처음부터 넉넉하게 잡는 게 훨씬 유리합니다. 상담 시 예상 주행거리 맞춰서 견적 설계해드립니다.
-        </div>
-      </div>
-
+      <input type="range" id="budgetSlider" name="budget" min="30" max="200" step="5" value="70"
+             oninput="updateBudget(this.value)">
+      <input type="hidden" id="budgetHidden" name="budget_display" value="70만원">
+      <div class="budget-labels"><span>30만원</span><span>100만원</span><span>200만원</span></div>
     </div>
+
+    <!-- 보증금 -->
+    <div class="fgroup">
+      <label class="flabel">보증금 (선납금) 가능 범위</label>
+      <select name="deposit">
+        <option value="">선택해 주세요 (선택 사항)</option>
+        <option>없음 (0원 선호)</option>
+        <option>100만원 이하</option>
+        <option>300만원 이하</option>
+        <option>500만원 이하</option>
+        <option>1,000만원 이하</option>
+        <option>1,000만원 이상도 가능</option>
+      </select>
+    </div>
+
+    <!-- 주행거리 -->
+    <div class="fgroup">
+      <label class="flabel">연간 예상 주행거리</label>
+      <div class="chip-group">
+        <input type="radio" id="km1" name="mileage" value="1만km 미만"><label for="km1">1만km 미만</label>
+        <input type="radio" id="km2" name="mileage" value="1~2만km"><label for="km2">1~2만km</label>
+        <input type="radio" id="km3" name="mileage" value="2~3만km"><label for="km3">2~3만km</label>
+        <input type="radio" id="km4" name="mileage" value="3만km 이상"><label for="km4">3만km 이상</label>
+      </div>
+    </div>
+
+    <!-- 출고 희망 시기 -->
+    <div class="fgroup">
+      <label class="flabel">출고 희망 시기</label>
+      <div class="chip-group">
+        <input type="radio" id="time1" name="timeline" value="최대한 빨리"><label for="time1">최대한 빨리</label>
+        <input type="radio" id="time2" name="timeline" value="1개월 내"><label for="time2">1개월 내</label>
+        <input type="radio" id="time3" name="timeline" value="3개월 내"><label for="time3">3개월 내</label>
+        <input type="radio" id="time4" name="timeline" value="아직 미정"><label for="time4">아직 미정</label>
+      </div>
+    </div>
+
+    <!-- 추가 요청 -->
+    <div class="fgroup">
+      <label class="flabel" for="memo">추가 요청 · 궁금한 점 (선택)</label>
+      <textarea class="fta" id="memo" name="memo" placeholder="예: 현재 차량 만기 3개월 남았습니다 / 세금계산서 발행 필요합니다 / 특정 색상 원합니다 등 자유롭게 적어주세요"></textarea>
+    </div>
+
+    <!-- 자동 수집 -->
+    <input type="hidden" name="utm_source" id="utm_source">
+    <input type="hidden" name="utm_medium" id="utm_medium">
+    <input type="hidden" name="utm_campaign" id="utm_campaign">
+    <input type="hidden" name="referrer" id="referrer">
+    <input type="hidden" name="landing_time" id="landing_time">
+
+    <div class="agree-row">
+      <input type="checkbox" id="agree" required>
+      <label for="agree">상담 목적의 개인정보(성함·연락처) 수집·이용에 동의합니다. 상담 완료 후 파기 요청 가능합니다.</label>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">무료 진단 신청하기</button>
+  </form>
+
+  <div class="done-msg" id="doneMsg">
+    <b>신청이 접수됐습니다 ◆</b>
+    <p>보통 당일, 늦어도 다음 영업일 오전까지 연락드립니다.<br>급하시면 인스타 DM에 "진단"이라고 남겨주세요.</p>
   </div>
 </section>
+</div>
 
-<!-- 최종 CTA -->
-<section class="final">
-  <h2>지금 바로 연락 주세요<br><span>직접 찾아뵙겠습니다</span></h2>
-  <p>평일 오후 2시 이후 대구·경북 어디든 — 상담비 없음 · 의무계약 없음</p>
-  <div class="final-btns">
-    <a href="https://open.kakao.com/o/s9pGhwud" class="fbtn-kk">💬 카카오톡 상담</a>
-    <a href="tel:010-7751-6693" class="fbtn-call">📞 전화 상담</a>
-  </div>
-</section>
-
-<!-- 푸터 -->
 <footer>
-  <p>
-    달리는 영업맨 | 임상직<br>
-    대구경북 장기렌트·오토리스 전문 컨설턴트<br>
-    © 2026 달리는 영업맨. All rights reserved.<br>
-    <small>본 페이지의 세율·한도는 2026년 기준 일반적 정보입니다. 정확한 세무처리는 전문가 상담을 권장합니다.</small>
-  </p>
+  <div class="wrap">
+    <div class="fw">
+      <div class="wordmark"><span class="auto">Auto</span><span class="dot"></span><span class="pick">Pick</span></div>
+    </div>
+    <p>대구 · 경북 장기렌트 · 오토리스 비교 컨설팅<br>imsangjic@gmail.com</p>
+    <div class="rule" style="margin-top:18px;"></div>
+    <p style="margin-top:10px;">본 페이지는 특정 렌트사의 공식 사이트가 아닌 독립 컨설팅 서비스입니다.</p>
+  </div>
 </footer>
 
+<div class="sticky" id="stickyBar">
+  <div class="wrap"><a href="#form">무료 진단 신청 →</a></div>
+</div>
+
 <script>
-function tog(btn){
-  var item=btn.closest('.faq-item');
-  var was=item.classList.contains('on');
-  document.querySelectorAll('.faq-item').forEach(function(el){el.classList.remove('on')});
-  if(!was)item.classList.add('on');
+var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQ7JeUGSK6aHgGc6TQvv8PYl-uNY0woqIgyXY6y8svOmpqM8SsRCWYWlXEXM6SIHGp/exec";
+
+// 차종 서브 옵션 토글
+function showCarDetail(val){
+  document.querySelectorAll('.car-detail').forEach(function(el){
+    el.classList.remove('show');
+    el.querySelectorAll('select').forEach(function(s){s.name='car_model_hidden';});
+  });
+  if(val && val!=='미정'){
+    var el=document.getElementById('detail_'+val);
+    if(el){
+      el.classList.add('show');
+      el.querySelector('select').name='car_model';
+    }
+  }
 }
-// 스크롤 시 상단바 그림자
-window.addEventListener('scroll',function(){
-  document.querySelector('.top-bar').style.boxShadow=
-    window.scrollY>10?'0 2px 16px rgba(0,0,0,0.35)':'none';
+
+// 예산 슬라이더
+function updateBudget(v){
+  var label = v>=200 ? '200만원 이상' : v+'만원';
+  document.getElementById('budgetDisplay').textContent=label;
+  document.getElementById('budgetHidden').value=label;
+}
+
+// UTM 캡처
+(function(){
+  var KEYS=["utm_source","utm_medium","utm_campaign"];
+  var params=new URLSearchParams(location.search);
+  KEYS.forEach(function(k){
+    var v=params.get(k);
+    if(v&&!sessionStorage.getItem(k)) sessionStorage.setItem(k,v);
+  });
+  if(document.referrer&&!sessionStorage.getItem("referrer")) sessionStorage.setItem("referrer",document.referrer);
+  if(!sessionStorage.getItem("landing_time")) sessionStorage.setItem("landing_time",new Date().toISOString());
+  ["utm_source","utm_medium","utm_campaign","referrer","landing_time"].forEach(function(k){
+    var el=document.getElementById(k);
+    if(el) el.value=sessionStorage.getItem(k)||"";
+  });
+})();
+
+// 폼 제출
+document.getElementById("leadForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var btn=document.getElementById("submitBtn");
+  btn.disabled=true; btn.textContent="전송 중…";
+  var fd=new FormData(this);
+  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd})
+    .then(function(){
+      document.getElementById("leadForm").style.display="none";
+      document.getElementById("doneMsg").style.display="block";
+      document.getElementById("stickyBar").style.display="none";
+    })
+    .catch(function(){
+      alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+      btn.disabled=false; btn.textContent="무료 진단 신청하기";
+    });
 });
 </script>
 </body>
