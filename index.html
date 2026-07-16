@@ -535,7 +535,7 @@ footer p{font-size:0.76rem;color:var(--muted2);}
 </div>
 
 <script>
-var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQ7JeUGSK6aHgGc6TQvv8PYl-uNY0woqIgyXY6y8svOmpqM8SsRCWYWlXEXM6SIHGp/exec";
+var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNYfxJBYRSr_DGcnVTqjTpA8x2Eak4fLdInIgDchbOFq8r-b8bdIjJ96wedVJ21bks/exec";
 
 // 차종 서브 옵션 토글
 function showCarDetail(val){
@@ -575,25 +575,23 @@ function updateBudget(v){
   });
 })();
 
-// 폼 제출 (GET + 이미지 픽셀 트릭 — CORS 완전 우회)
+// 폼 제출
 document.getElementById("leadForm").addEventListener("submit",function(e){
   e.preventDefault();
   var btn=document.getElementById("submitBtn");
   btn.disabled=true; btn.textContent="전송 중…";
-
-  // FormData → URLSearchParams 변환
   var fd=new FormData(this);
-  var params=new URLSearchParams();
-  fd.forEach(function(v,k){ params.append(k,v); });
-
-  // 이미지 픽셀 방식: CORS 제약 없이 GET 요청 가능
-  var img=new Image();
-  img.onload=img.onerror=function(){
-    document.getElementById("leadForm").style.display="none";
-    document.getElementById("doneMsg").style.display="block";
-    document.getElementById("stickyBar").style.display="none";
-  };
-  img.src=APPS_SCRIPT_URL+"?"+params.toString();
+  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd,mode:"no-cors"})
+    .then(function(){
+      document.getElementById("leadForm").style.display="none";
+      document.getElementById("doneMsg").style.display="block";
+      document.getElementById("stickyBar").style.display="none";
+    })
+    .catch(function(){
+      document.getElementById("leadForm").style.display="none";
+      document.getElementById("doneMsg").style.display="block";
+      document.getElementById("stickyBar").style.display="none";
+    });
 });
 </script>
 </body>
