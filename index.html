@@ -575,23 +575,37 @@ function updateBudget(v){
   });
 })();
 
-// 폼 제출
+// 폼 제출 — iframe 방식 (CORS 완전 우회, 안정적)
 document.getElementById("leadForm").addEventListener("submit",function(e){
   e.preventDefault();
   var btn=document.getElementById("submitBtn");
   btn.disabled=true; btn.textContent="전송 중…";
+
   var fd=new FormData(this);
-  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd,mode:"no-cors"})
-    .then(function(){
-      document.getElementById("leadForm").style.display="none";
-      document.getElementById("doneMsg").style.display="block";
-      document.getElementById("stickyBar").style.display="none";
-    })
-    .catch(function(){
-      document.getElementById("leadForm").style.display="none";
-      document.getElementById("doneMsg").style.display="block";
-      document.getElementById("stickyBar").style.display="none";
-    });
+  var params=new URLSearchParams();
+  fd.forEach(function(v,k){ params.append(k,v); });
+
+  // 숨겨진 iframe으로 GET 요청 — 브라우저가 막지 않음
+  var ifr=document.createElement("iframe");
+  ifr.style.display="none";
+  ifr.name="submit_frame_"+Date.now();
+  document.body.appendChild(ifr);
+
+  ifr.onload=function(){
+    document.getElementById("leadForm").style.display="none";
+    document.getElementById("doneMsg").style.display="block";
+    document.getElementById("stickyBar").style.display="none";
+    setTimeout(function(){ document.body.removeChild(ifr); }, 3000);
+  };
+
+  // 2초 후에도 응답 없으면 성공으로 처리 (Apps Script 지연 대비)
+  setTimeout(function(){
+    document.getElementById("leadForm").style.display="none";
+    document.getElementById("doneMsg").style.display="block";
+    document.getElementById("stickyBar").style.display="none";
+  }, 2000);
+
+  ifr.src=APPS_SCRIPT_URL+"?"+params.toString();
 });
 </script>
 </body>
