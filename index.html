@@ -575,23 +575,25 @@ function updateBudget(v){
   });
 })();
 
-// 폼 제출
+// 폼 제출 (GET + 이미지 픽셀 트릭 — CORS 완전 우회)
 document.getElementById("leadForm").addEventListener("submit",function(e){
   e.preventDefault();
   var btn=document.getElementById("submitBtn");
   btn.disabled=true; btn.textContent="전송 중…";
+
+  // FormData → URLSearchParams 변환
   var fd=new FormData(this);
-  fetch(APPS_SCRIPT_URL,{method:"POST",body:fd,mode:"no-cors"})
-    .then(function(){
-      document.getElementById("leadForm").style.display="none";
-      document.getElementById("doneMsg").style.display="block";
-      document.getElementById("stickyBar").style.display="none";
-    })
-    .catch(function(){
-      document.getElementById("leadForm").style.display="none";
-      document.getElementById("doneMsg").style.display="block";
-      document.getElementById("stickyBar").style.display="none";
-    });
+  var params=new URLSearchParams();
+  fd.forEach(function(v,k){ params.append(k,v); });
+
+  // 이미지 픽셀 방식: CORS 제약 없이 GET 요청 가능
+  var img=new Image();
+  img.onload=img.onerror=function(){
+    document.getElementById("leadForm").style.display="none";
+    document.getElementById("doneMsg").style.display="block";
+    document.getElementById("stickyBar").style.display="none";
+  };
+  img.src=APPS_SCRIPT_URL+"?"+params.toString();
 });
 </script>
 </body>
